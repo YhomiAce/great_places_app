@@ -28,6 +28,10 @@
 	<string>Allow App To Access Camera</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Allow App To Access Microphone</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Allow App To Access Your location</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Allow App To Access Your location</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
