@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import 'add_place_screen.dart';
 import '../providers/great_places.dart';
+import './place_detail_screen.dart';
 
 class PlacesListScreen extends StatelessWidget {
   @override
@@ -29,7 +30,12 @@ class PlacesListScreen extends StatelessWidget {
               )
             : Consumer<GreatPlaces>(
                 child: Center(
-                  child: Text('Got no places yet, start adding some!!'),
+                  child: Text(
+                    'Got no places yet, start adding some!!',
+                    style: TextStyle(
+                      color: Colors.grey,
+                    ),
+                  ),
                 ),
                 builder: (ctx, greatPlaces, ch) => greatPlaces.items.length <= 0
                     ? ch
@@ -44,7 +50,15 @@ class PlacesListScreen extends StatelessWidget {
                           title: Text(
                             greatPlaces.items[i].title,
                           ),
-                          onTap: () {},
+                          subtitle: Text(
+                              greatPlaces.items[i].location.address == null
+                                  ? "No address"
+                                  : greatPlaces.items[i].location.address),
+                          onTap: () {
+                            Navigator.of(context).pushNamed(
+                                PlaceDetailScreen.routename,
+                                arguments: greatPlaces.items[i].id);
+                          },
                         ),
                       ),
               ),
